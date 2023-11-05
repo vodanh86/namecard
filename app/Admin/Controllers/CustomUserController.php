@@ -27,13 +27,26 @@ class CustomUserController extends UserController
     protected function grid()
     {
         $grid = new Grid(new AdminUser());
-
-        $grid->column('id', 'ID')->sortable();
-        $grid->column('username', trans('admin.username'))->filter('like');
-        $grid->column('name', trans('admin.name'))->filter('like');
-        $grid->column('roles', trans('admin.roles'))->pluck('name')->label();
-        $grid->column('created_at', trans('admin.created_at'));
-        $grid->column('updated_at', trans('admin.updated_at'));
+        $grid->column('id', __('Id'));
+        $grid->column('username', __('Username'));
+        $grid->column('name', __('Name'));
+        $grid->column('avatar', __('Avatar'));
+        $grid->column('slug', __('slug'));
+        $grid->column('job', __('Job'));
+        $grid->column('phone_number', __('Phone number'));
+        $grid->column('titile', __('Titile'));
+        $grid->column('twitter', __('Twitter'));
+        $grid->column('facebook', __('Facebook'));
+        $grid->column('instagram', __('Instagram'));
+        $grid->column('skype', __('Skype'));
+        $grid->column('linkedin', __('Linkedin'));
+        $grid->column('birth_day', __('Birth day'));
+        $grid->column('email', __('Email'));
+        $grid->column('address', __('Address'));
+        $grid->column('slogan', __('Slogan'));
+        $grid->column('image', __('Image'));
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
         $grid->model()->orderBy('id', 'desc');
         $grid->actions(function (Grid\Displayers\Actions $actions) {
             if ($actions->getKey() == 1) {
@@ -69,17 +82,27 @@ class CustomUserController extends UserController
     {
         $show = new Show(AdminUser::findOrFail($id));
 
-        $show->field('id', 'ID');
-        $show->field('username', trans('admin.username'));
-        $show->field('name', trans('admin.name'));
-        $show->field('roles', trans('admin.roles'))->as(function ($roles) {
-            return $roles->pluck('name');
-        })->label();
-        $show->field('permissions', trans('admin.permissions'))->as(function ($permission) {
-            return $permission->pluck('name');
-        })->label();
-        $show->field('created_at', trans('admin.created_at'));
-        $show->field('updated_at', trans('admin.updated_at'));
+        $show->field('id', __('Id'));
+        $show->field('username', __('Username'));
+        $show->field('password', __('Password'));
+        $show->field('name', __('Name'));
+        $show->field('avatar', __('Avatar'));
+        $show->field('remember_token', __('Remember token'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
+        $show->field('job', __('Job'));
+        $show->field('phone_number', __('Phone number'));
+        $show->field('titile', __('Titile'));
+        $show->field('twitter', __('Twitter'));
+        $show->field('facebook', __('Facebook'));
+        $show->field('instagram', __('Instagram'));
+        $show->field('skype', __('Skype'));
+        $show->field('linkedin', __('Linkedin'));
+        $show->field('birth_day', __('Birth day'));
+        $show->field('email', __('Email'));
+        $show->field('address', __('Address'));
+        $show->field('slogan', __('Slogan'));
+        $show->field('image', __('Image'));
 
         return $show;
     }
@@ -117,7 +140,19 @@ class CustomUserController extends UserController
         $form->multipleSelect('roles', trans('admin.roles'))->options($roleModel::all()->pluck('name', 'id'));
         //$form->select('branch_id', "Chi nhánh")->options(Branch::all()->pluck('branch_name', 'id'))->default(3);
         //$form->multipleSelect('permissions', trans('admin.permissions'))->options($permissionModel::all()->pluck('name', 'id'));
-
+        $form->text('job', __('Job'));
+        $form->text('phone_number', __('Phone number'));
+        $form->text('titile', __('Titile'));
+        $form->text('twitter', __('Twitter'));
+        $form->text('facebook', __('Facebook'));
+        $form->text('instagram', __('Instagram'));
+        $form->text('skype', __('Skype'));
+        $form->text('linkedin', __('Linkedin'));
+        $form->date('birth_day', __('Birth day'))->default(date('Y-m-d'));
+        $form->email('email', __('Email'));
+        $form->text('address', __('Address'));
+        $form->text('slogan', __('Slogan'));
+        $form->image('image', __('Image'));
         $form->display('created_at', trans('admin.created_at'));
         $form->display('updated_at', trans('admin.updated_at'));
 

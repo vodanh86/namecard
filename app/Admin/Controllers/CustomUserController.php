@@ -34,7 +34,7 @@ class CustomUserController extends UserController
         $grid->column('slug', __('slug'));
         $grid->column('job', __('Job'));
         $grid->column('phone_number', __('Phone number'));
-        $grid->column('titile', __('Titile'));
+        $grid->column('title', __('Title'));
         $grid->column('twitter', __('Twitter'));
         $grid->column('facebook', __('Facebook'));
         $grid->column('instagram', __('Instagram'));
@@ -92,7 +92,7 @@ class CustomUserController extends UserController
         $show->field('updated_at', __('Updated at'));
         $show->field('job', __('Job'));
         $show->field('phone_number', __('Phone number'));
-        $show->field('titile', __('Titile'));
+        $show->field('title', __('Titile'));
         $show->field('twitter', __('Twitter'));
         $show->field('facebook', __('Facebook'));
         $show->field('instagram', __('Instagram'));
@@ -142,7 +142,7 @@ class CustomUserController extends UserController
         //$form->multipleSelect('permissions', trans('admin.permissions'))->options($permissionModel::all()->pluck('name', 'id'));
         $form->text('job', __('Job'));
         $form->text('phone_number', __('Phone number'));
-        $form->text('titile', __('Titile'));
+        $form->text('title', __('Title'));
         $form->text('twitter', __('Twitter'));
         $form->text('facebook', __('Facebook'));
         $form->text('instagram', __('Instagram'));

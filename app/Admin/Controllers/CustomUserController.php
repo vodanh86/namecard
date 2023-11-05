@@ -30,7 +30,7 @@ class CustomUserController extends UserController
         $grid->column('id', __('Id'));
         $grid->column('username', __('Username'));
         $grid->column('name', __('Name'));
-        $grid->column('avatar', __('Avatar'));
+        $grid->column('avatar', __('Avatar'))->image();
         $grid->column('slug', __('slug'));
         $grid->column('job', __('Job'));
         $grid->column('phone_number', __('Phone number'));

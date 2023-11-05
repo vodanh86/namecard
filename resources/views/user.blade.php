@@ -134,7 +134,7 @@
           <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200" >
           <div class="icon-box iconbox-blue" style="width: 100%">
             {!! QrCode::color(52,189,157)->size(200)->generate(Request::url()) !!}
-              <p><h4>Mã qr số điện thoại</h4></p>
+              <p><h4>Mã qr link website</h4></p>
             </div>
           </div>
 

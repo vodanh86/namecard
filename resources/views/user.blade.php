@@ -64,8 +64,8 @@
         <a href="{{$user->twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="{{$user->facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="{{$user->instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="skype:{{$user->skype}}?chat" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="{{$user->linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -78,19 +78,14 @@
 
         <div class="section-title">
           <h2>Giới thiệu</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>{{$user->introduction}}</p>
         </div>
 
         <div class="row">
           <div class="col-lg-4">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+            <img src="{{$user->avatar}}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
-            <h3>UI/UX Designer &amp; Web Developer.</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
@@ -110,8 +105,7 @@
               </div>
             </div>
             <p>
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+              {{$user->slogan}}
             </p>
           </div>
         </div>
@@ -292,8 +286,8 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
-      <h3>Brandon Johnson</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <h3>{{$user->name}}</h3>
+      <p>{{$user->slogan}}</p>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

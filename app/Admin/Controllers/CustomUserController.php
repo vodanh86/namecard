@@ -151,7 +151,8 @@ class CustomUserController extends UserController
         $form->date('birth_day', __('Birth day'))->default(date('Y-m-d'));
         $form->email('email', __('Email'));
         $form->text('address', __('Address'));
-        $form->textarea('slogan', __('Slogan'));
+        $form->textarea('introduction', __('Introduction'));
+        $form->text('slogan', __('Slogan'));
         $form->image('image', __('Image'));
         $form->display('created_at', trans('admin.created_at'));
         $form->display('updated_at', trans('admin.updated_at'));

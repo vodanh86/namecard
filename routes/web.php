@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('user/{user}', function (App\User $user) {
+    return $user->email;
+});
+Route::get('/user/{user}', 'UserController@view');
 Route::get('/', function () {
     return view('welcome');
 });
+

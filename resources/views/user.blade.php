@@ -59,7 +59,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center text-center" style="background: url('{{$user->avatar}}') top right no-repeat;background-size:cover">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
       @if($user->image)
-      <image class="bt-4" src="{{ Storage::disk('admin')->url($user->image)}}"  width="148" height="148"/>
+      <image class="pb-4" src="{{ Storage::disk('admin')->url($user->image)}}"  width="148" height="148"/>
       @endif
       <h1>{{$user->name}}</h1>
       <p>I'm <span class="typed" data-typed-items="{{$user->job}}"></span></p>

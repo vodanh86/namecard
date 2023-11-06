@@ -31,7 +31,9 @@ class CustomUserController extends UserController
         $grid->column('username', __('Username'));
         $grid->column('name', __('Name'));
         $grid->column('avatar', __('Avatar'))->image();
-        $grid->column('slug', __('slug'));
+        $grid->column('slug', __('link'))->display(function ($title) {
+            return "<a href='".env('APP_URL')."/user/$title' target='_blank'>$title</a>";
+        });
         $grid->column('job', __('Job'));
         $grid->column('phone_number', __('Phone number'));
         $grid->column('title', __('Title'));
@@ -148,6 +150,12 @@ class CustomUserController extends UserController
         $form->url('instagram', __('Instagram'));
         $form->text('skype', __('Skype'));
         $form->url('linkedin', __('Linkedin'));
+        $form->text('telegram', __('telegram'));
+        $form->url('line', __('line'));
+        $form->url('zalo', __('zalo'));
+        $form->url('youtube', __('youtube'));
+        $form->text('tiktok', __('tiktok'));
+        $form->url('whatsapp', __('whatsapp'));
         $form->date('birth_day', __('Birth day'))->default(date('Y-m-d'));
         $form->email('email', __('Email'));
         $form->text('address', __('Address'));

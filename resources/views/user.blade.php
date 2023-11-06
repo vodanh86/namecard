@@ -66,6 +66,12 @@
         <a href="{{$user->instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
         <a href="skype:{{$user->skype}}?chat" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="{{$user->linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="{{$user->telegram}}" class="linkedin"><i class="bx bxl-telegram"></i></a>
+        <a href="{{$user->youtube}}" class="linkedin"><i class="bx bxl-youtube"></i></a>
+        <a href="{{$user->tiktok}}" class="linkedin"><i class="bx bxl-tiktok"></i></a>
+        <a href="{{$user->whatsapp}}" class="linkedin"><i class="bx bxl-whatsapp"></i></a>
+        <a href="{{$user->line}}" class="linkedin"><i class="bx bxl-line"></i></a>
+        <a href="{{$user->zalo}}" class="linkedin"><i class="bx bxl-zalo"></i></a>
       </div>
     </div>
   </section><!-- End Hero -->

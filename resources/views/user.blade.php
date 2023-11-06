@@ -131,42 +131,6 @@
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>QR Code</h2>
-          <p>Mã QR Code giới thiệu với bạn bè.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" >
-            <div class="icon-box iconbox-blue" style="width: 100%">
-            {!! QrCode::color(52,189,157)->size(200)->generate('tel:'.$user->phone_number) !!}
-              <p><h4>Mã qr số điện thoại</h4></p>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200" >
-          <div class="icon-box iconbox-blue" style="width: 100%">
-            {!! QrCode::color(52,189,157)->size(200)->generate(Request::url()) !!}
-              <p><h4>Mã qr link website</h4></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Services Section -->
-
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">

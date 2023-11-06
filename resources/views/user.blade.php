@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{$user->avatar}}" rel="icon">
-  <link href="{{$user->avatar}}" rel="apple-touch-icon">
+  <link href="{{ Storage::disk('admin')->url($user->image)}}" rel="icon">
+  <link href="{{ Storage::disk('admin')->url($user->image)}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -56,8 +56,11 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center" style="background: url('{{$user->avatar}}') top right no-repeat;background-size:cover">
+  <section id="hero" class="d-flex flex-column justify-content-center text-center" style="background: url('{{$user->avatar}}') top right no-repeat;background-size:cover">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      @if($user->image)
+      <image class="bt-2" src="{{ Storage::disk('admin')->url($user->image)}}"  width="148" height="148"/>
+      @endif
       <h1>{{$user->name}}</h1>
       <p>I'm <span class="typed" data-typed-items="{{$user->job}}"></span></p>
       <div class="social-links">
@@ -75,7 +78,7 @@
         <a href="{{Request::url()}}" class="linkedin"><image src="assets/icons/website.png"  width="35" height="35"/></a>
       </div>
       <div class="row pt-3">
-        <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" >
+        <div class="col-lg-12 col-md-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" >
           <div class="icon-box iconbox-blue" style="width: 100%">
           {!! QrCode::color(52,189,157)->size(200)->generate('tel:'.$user->phone_number) !!}
             <p><h4>Mã qr số điện thoại</h4></p>

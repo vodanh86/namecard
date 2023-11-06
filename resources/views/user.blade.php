@@ -77,11 +77,10 @@
         <a href="{{$user->zalo}}" class="linkedin"><image src="assets/icons/zalo.png"  width="35" height="35"/></a>
         <a href="{{Request::url()}}" class="linkedin"><image src="assets/icons/website.png"  width="35" height="35"/></a>
       </div>
-      <div class="row pt-3">
+      <div class="row pt-4">
         <div class="col-lg-12 col-md-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" >
           <div class="icon-box iconbox-blue" style="width: 100%">
           {!! QrCode::color(52,189,157)->size(200)->generate('tel:'.$user->phone_number) !!}
-            <p><h4>Mã qr số điện thoại</h4></p>
           </div>
         </div>
 

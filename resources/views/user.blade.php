@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ Storage::disk('admin')->url($user->image)}}" rel="icon">
+  <link href="{{ Storage::disk('admin')->url($user->image)}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -48,7 +48,6 @@
       <ul>
         <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-qr"></i> <span>Qr code</span></a></li>
         <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
       </ul>
     </nav><!-- .nav-menu -->
@@ -56,22 +55,34 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center" style="background: url('{{$user->avatar}}') top right no-repeat;background-size:cover">
+  <section id="hero" class="d-flex flex-column justify-content-center text-center" style="background: url('{{$user->avatar}}') top right no-repeat;background-size:cover">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      @if($user->image)
+      <image class="pb-4" src="{{ Storage::disk('admin')->url($user->image)}}"  width="148"/>
+      @endif
       <h1>{{$user->name}}</h1>
       <p>I'm <span class="typed" data-typed-items="{{$user->job}}"></span></p>
       <div class="social-links">
-        <a href="{{$user->twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="{{$user->facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="{{$user->instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="skype:{{$user->skype}}?chat" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="{{$user->linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="{{$user->telegram}}" class="linkedin"><i class="bx bxl-telegram"></i></a>
-        <a href="{{$user->youtube}}" class="linkedin"><i class="bx bxl-youtube"></i></a>
-        <a href="{{$user->tiktok}}" class="linkedin"><i class="bx bxl-tiktok"></i></a>
-        <a href="{{$user->whatsapp}}" class="linkedin"><i class="bx bxl-whatsapp"></i></a>
-        <a href="{{$user->line}}" class="linkedin"><i class="bx bxl-line"></i></a>
-        <a href="{{$user->zalo}}" class="linkedin"><i class="bx bxl-zalo"></i></a>
+        <a href="{{$user->twitter}}" class="twitter"><image src="assets/icons/twitter.png"  width="48" height="48"/></a>
+        <a href="{{$user->facebook}}" class="facebook"><image src="assets/icons/facebook.png"  width="35" height="35"/></a>
+        <a href="{{$user->instagram}}" class="instagram"><image src="assets/icons/instagram.png"  width="35" height="35"/></a>
+        <a href="skype:{{$user->skype}}?chat" class="google-plus"><image src="assets/icons/skype.png"  width="35" height="35"/></a>
+        <a href="{{$user->linkedin}}" class="linkedin"><image src="assets/icons/linkedin.png"  width="35" height="35"/></a>
+        <a href="{{$user->telegram}}" class="linkedin"><image src="assets/icons/telegram.png"  width="35" height="35"/></a>
+        <a href="{{$user->youtube}}" class="linkedin"><image src="assets/icons/youtube.png"  width="35" height="35"/></a>
+        <a href="{{$user->tiktok}}" class="linkedin"><image src="assets/icons/tiktok.png"  width="35" height="35"/></a>
+        <a href="{{$user->whatsapp}}" class="linkedin"><image src="assets/icons/whatsapp.png"  width="35" height="35"/></a>
+        <a href="{{$user->line}}" class="linkedin"><image src="assets/icons/line.png"  width="35" height="35"/></a>
+        <a href="{{$user->zalo}}" class="linkedin"><image src="assets/icons/zalo.png"  width="35" height="35"/></a>
+        <a href="{{Request::url()}}" class="linkedin"><image src="assets/icons/website.png"  width="35" height="35"/></a>
+      </div>
+      <div class="row pt-4">
+        <div class="col-lg-12 col-md-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" >
+          <div class="icon-box iconbox-blue" style="width: 100%">
+          {!! QrCode::color(52,189,157)->size(200)->generate('tel:'.$user->phone_number) !!}
+          </div>
+        </div>
+
       </div>
     </div>
   </section><!-- End Hero -->
@@ -118,42 +129,6 @@
 
       </div>
     </section><!-- End About Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>QR Code</h2>
-          <p>Mã QR Code giới thiệu với bạn bè.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" >
-            <div class="icon-box iconbox-blue" style="width: 100%">
-            {!! QrCode::color(52,189,157)->size(200)->generate('tel:'.$user->phone_number) !!}
-              <p><h4>Mã qr số điện thoại</h4></p>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200" >
-          <div class="icon-box iconbox-blue" style="width: 100%">
-            {!! QrCode::color(52,189,157)->size(200)->generate(Request::url()) !!}
-              <p><h4>Mã qr link website</h4></p>
-            </div>
-          </div>
-
-      </div>
-    </section><!-- End Services Section -->
-
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">

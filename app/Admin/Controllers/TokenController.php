@@ -27,7 +27,7 @@ class TokenController extends AdminController
         $grid = new Grid(new Token());
 
         $grid->column('id', __('Id'));
-        $grid->column('token', __('Token'));
+        $grid->column('token', __('Token'))->width(800);
         $grid->column('expired_date', __('Expired date'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -63,7 +63,7 @@ class TokenController extends AdminController
     {
         $form = new Form(new Token());
 
-        $form->text('token', __('Token'));
+        $form->textarea('token', __('Token'));
         $form->text('expired_date', __('Expired date'));
 
         return $form;

@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use Carbon\Carbon;
 use App\Http\Models\Token;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -65,7 +66,17 @@ class TokenController extends AdminController
 
         $form->textarea('token', __('Token'));
         $form->text('expired_date', __('Expired date'));
-
+        // callback before save
+        $form->saving(function (Form $form) {
+            $params = explode("steamLoginSecure=", $form->token);
+            if (count($params) > 1) {
+                $params = explode("'", $params[1]);
+                list($header, $payload, $signature) = explode('.', $params[0]);
+                $jsonToken = base64_decode($payload);
+                $arrayToken = json_decode($jsonToken, true);
+                $form->expired_date = Carbon::createFromTimestamp($arrayToken["exp"])->toDateTimeString();  
+            }
+        });
         return $form;
     }
 }

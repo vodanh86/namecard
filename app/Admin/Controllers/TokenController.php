@@ -30,6 +30,7 @@ class TokenController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('token', __('Token'))->width(800);
         $grid->column('expired_date', __('Expired date'));
+        $grid->column('time_stamp', __('TimeStamp'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -66,6 +67,7 @@ class TokenController extends AdminController
 
         $form->textarea('token', __('Token'));
         $form->text('expired_date', __('Expired date'));
+        $form->text('time_stamp', __('Time Stamp'));
         // callback before save
         $form->saving(function (Form $form) {
             $params = explode("steamLoginSecure=", $form->token);
@@ -74,7 +76,8 @@ class TokenController extends AdminController
                 list($header, $payload, $signature) = explode('.', $params[0]);
                 $jsonToken = base64_decode($payload);
                 $arrayToken = json_decode($jsonToken, true);
-                $form->expired_date = Carbon::createFromTimestamp($arrayToken["exp"])->toDateTimeString();  
+                $form->time_stamp = $arrayToken["exp"];
+                $form->expired_date = Carbon::createFromTimestamp($arrayToken["exp"])->toDateTimeString();
             }
         });
         return $form;
